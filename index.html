@@ -235,6 +235,16 @@
         .project-link:hover::after { transform: translateX(5px); }
         .project-visual { height: 300px; background: var(--gray-900); border: 1px solid var(--gray-800); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--gray-600); font-weight: 300; transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1); }
         .project-item:hover .project-visual { background: var(--gray-800); border-color: var(--gray-700); }
+        
+        /* --- INIZIO MODIFICA --- */
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fa in modo che l'immagine copra tutto lo spazio disponibile senza distorcersi */
+            display: block; /* Buona pratica per le immagini */
+        }
+        /* --- FINE MODIFICA --- */
+
         .contact { padding: 8rem 3rem; border-top: 1px solid var(--gray-800); }
         .contact-content { max-width: 600px; margin: 0 auto; text-align: center; }
         .contact-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 100; margin-bottom: 2rem; letter-spacing: -0.02em; }
@@ -358,7 +368,9 @@
                         <a href="https://farma-beta.vercel.app/" class="project-link" data-it="Vedi Progetto" data-en="View Project">Vedi Progetto</a>
                     </div>
                     <div class="project-visual">
-                        <span data-it="Anteprima non disponibile" data-en="Preview unavailable">Anteprima non disponibile</span>
+                    <a href="https://farma-beta.vercel.app/" target="_self">
+                        <img src="farma.png" alt="PrezziFarma">
+                    </a>
                 </div>
             </div>
         
@@ -377,9 +389,8 @@
                         <a href="https://simoneminerva96.github.io/naruto/" class="project-link" data-it="Vedi Progetto" data-en="View Project">Vedi Progetto</a>
                 </div>
                 <div class="project-visual">
-                    <span data-it="Preview non disponibile" data-en="Preview unavailable">Preview non disponibile</span>
                     <a href="https://simoneminerva96.github.io/naruto/" target="_self">
-                        <img src="naruto.jpg" alt="Naruto">
+                        <img src="naruto.png" alt="Naruto">
                     </a>
 
                 </div>
@@ -400,7 +411,7 @@
                 </div>
                 <div class="project-visual">
                     <a href="https://simoneminerva96.github.io/addestramento-cuccioli/" target="_self">
-                        <img src="cuccioli.jpg" alt="addestramento">
+                        <img src="cuccioli.png" alt="addestramento">
                     </a>
                 </div>
             </div>
