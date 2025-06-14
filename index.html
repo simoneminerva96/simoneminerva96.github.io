@@ -519,9 +519,10 @@
           padding: 1.5rem 1.5rem;
         }
         .hero {
-          padding: 12rem 1.5rem 0; /* MODIFICA: aumentato da 0 a 12rem */
+          padding: 14rem 1.5rem 0; /* MODIFICA: aumentato da 12rem a 14rem per maggiore spazio */
           justify-content: center;
-        } /* Assicura la centratura su tablet */
+          min-height: 100vh; /* Assicura altezza minima completa */
+        }
         .projects {
           padding: 6rem 1.5rem;
         }
@@ -543,11 +544,11 @@
           padding: 2rem 1.5rem;
         }
         .scroll-hint {
-          margin-top: 4rem;
+          margin-top: 3rem; /* Ridotto da 4rem per mantenere tutto visibile */
           gap: 1rem;
         }
         .scroll-line {
-          height: 100px;
+          height: 80px; /* Ridotto leggermente */
         }
         .signature {
           display: none;
@@ -556,8 +557,8 @@
 
       @media (max-width: 480px) {
         .hero {
-          padding: 12rem 1rem 0; /* MODIFICA: aumentato da 0 a 12rem */
-          min-height: 90vh;
+          padding: 16rem 1rem 0; /* MODIFICA: aumentato da 12rem a 16rem per dispositivi molto piccoli */
+          min-height: 100vh; /* Mantiene altezza viewport completa */
         }
         .projects {
           padding: 4rem 1rem;
@@ -572,11 +573,11 @@
           padding: 1rem;
         }
         .scroll-hint {
-          margin-top: 3rem;
+          margin-top: 2rem; /* Ulteriormente ridotto per dispositivi piccoli */
           gap: 0.8rem;
         }
         .scroll-line {
-          height: 80px;
+          height: 60px; /* Ridotto per garantire visibilità */
         }
       }
 
