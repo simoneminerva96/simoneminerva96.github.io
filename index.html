@@ -519,9 +519,9 @@
           padding: 1.5rem 1.5rem;
         }
         .hero {
-          padding: 14rem 1.5rem 0; /* MODIFICA: aumentato da 12rem a 14rem per maggiore spazio */
+          padding: 8rem 1.5rem 2rem; /* MODIFICA: ridotto padding-top e aggiunto padding-bottom */
           justify-content: center;
-          min-height: 100vh; /* Assicura altezza minima completa */
+          min-height: 100vh;
         }
         .projects {
           padding: 6rem 1.5rem;
@@ -544,11 +544,11 @@
           padding: 2rem 1.5rem;
         }
         .scroll-hint {
-          margin-top: 3rem; /* Ridotto da 4rem per mantenere tutto visibile */
-          gap: 1rem;
+          margin-top: 2rem; /* MODIFICA: ridotto drasticamente per far entrare tutto */
+          gap: 0.8rem;
         }
         .scroll-line {
-          height: 80px; /* Ridotto leggermente */
+          height: 60px; /* MODIFICA: ridotto per ottimizzare lo spazio */
         }
         .signature {
           display: none;
@@ -557,8 +557,8 @@
 
       @media (max-width: 480px) {
         .hero {
-          padding: 16rem 1rem 0; /* MODIFICA: aumentato da 12rem a 16rem per dispositivi molto piccoli */
-          min-height: 100vh; /* Mantiene altezza viewport completa */
+          padding: 7rem 1rem 2rem; /* MODIFICA: ridotto padding-top e aggiunto padding-bottom */
+          min-height: 100vh;
         }
         .projects {
           padding: 4rem 1rem;
@@ -573,11 +573,17 @@
           padding: 1rem;
         }
         .scroll-hint {
-          margin-top: 2rem; /* Ulteriormente ridotto per dispositivi piccoli */
-          gap: 0.8rem;
+          margin-top: 1.5rem; /* MODIFICA: ridotto ancora di più */
+          gap: 0.6rem;
         }
         .scroll-line {
-          height: 60px; /* Ridotto per garantire visibilità */
+          height: 50px; /* MODIFICA: ridotto per dispositivi molto piccoli */
+        }
+        .hero-title {
+          margin-bottom: 1.5rem; /* MODIFICA: ridotto spazio sotto il titolo */
+        }
+        .hero-subtitle {
+          margin-bottom: 2rem; /* MODIFICA: ridotto spazio */
         }
       }
 
