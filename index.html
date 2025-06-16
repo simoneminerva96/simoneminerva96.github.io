@@ -612,13 +612,46 @@
         }
       }
     </style>
+    <!-- Stili per l'easter egg video -->
+    <style>
+      .easter-egg-video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 9999;
+        display: none; /* Inizialmente nascosto */
+        justify-content: center;
+        align-items: center;
+      }
+      .easter-egg-video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Assicura che l'intero video sia visibile, riempiendo con nero ai lati se necessario */
+      }
+      body.easter-egg-active > *:not(.easter-egg-video-container) {
+        display: none !important; /* Nasconde tutto tranne il video container */
+      }
+    </style>
   </head>
   <body>
+    <!-- Contenitore per l'easter egg video -->
+    <div class="easter-egg-video-container" id="easterEggVideoContainer">
+      <video
+        id="easterEggVideo"
+        src="images/itachi.mp4"
+        muted
+        playsinline
+      ></video>
+    </div>
+
     <div class="signature">SIMONE ANTONIO MINERVA ©</div>
 
     <header class="header">
       <nav class="nav">
-        <div class="logo">𝕾𝖎𝖒𝖔𝖓𝖊 𝕬𝖓𝖙𝖔𝖓𝖎𝖔 𝕸𝖎𝖓𝖊𝖗𝖛𝖆</div>
+        <div class="logo" id="easterEggTrigger">𝕾𝖎𝖒𝖔𝖓𝖊 𝕬𝖓𝖙𝖔𝖓𝖎𝖔 𝕸𝖎𝖓𝖊𝖗𝖛𝖆</div>
         <button class="lang-toggle" onclick="toggleLanguage()">
           <span class="lang-current">IT</span> /
           <span class="lang-alt">EN</span>
@@ -732,7 +765,7 @@
             <p
               class="project-description"
               data-it="Un tracker di episodi per Naruto e Naruto Shippuden che ti permette di tenere traccia dei progressi e salvare le puntate viste direttamente nel browser."
-              data-en="An episode tracker for Naruto and Naruto Shippuden, allowing you to track your progress and save watched episodes directly in your browser."
+              data-en="An episode tracker for Naruto and Naruto Shippoden, allowing you to track your progress and save watched episodes directly in your browser."
             >
               Un tracker di episodi per Naruto e Naruto Shippuden che ti
               permette di tenere traccia dei progressi e salvare le puntate
@@ -902,6 +935,50 @@
       projectItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.1}s`;
       });
+
+      // Inizio codice Easter Egg
+      let clickCount = 0; // Contatore dei click
+      const logoElement = document.getElementById("easterEggTrigger"); // Elemento del logo
+      const videoContainer = document.getElementById("easterEggVideoContainer"); // Contenitore del video
+      const videoElement = document.getElementById("easterEggVideo"); // Elemento video
+
+      if (logoElement && videoContainer && videoElement) {
+        logoElement.addEventListener("click", () => {
+          clickCount++; // Incrementa il contatore ad ogni click
+          console.log("Click sul logo:", clickCount); // Log per debug
+
+          if (clickCount === 10) {
+            // Se il contatore raggiunge 10
+            console.log("Easter Egg attivato!"); // Log per debug
+            videoContainer.style.display = "flex"; // Mostra il contenitore del video
+            document.body.classList.add("easter-egg-active"); // Aggiunge la classe per nascondere il resto della pagina
+
+            videoElement
+              .play() // Avvia la riproduzione del video
+              .catch((error) => {
+                console.error(
+                  "Errore durante la riproduzione del video:",
+                  error
+                );
+                // Gestione dell'errore, ad esempio, mostrando un messaggio all'utente
+              });
+
+            // Opzionale: resetta il contatore dopo l'attivazione
+            clickCount = 0;
+          }
+        });
+
+        // Gestisce la fine della riproduzione del video
+        videoElement.addEventListener("ended", () => {
+          console.log("Video terminato, ripristino la pagina."); // Log per debug
+          videoContainer.style.display = "none"; // Nasconde il contenitore del video
+          document.body.classList.remove("easter-egg-active"); // Rimuove la classe per ripristinare la pagina
+          videoElement.currentTime = 0; // Resetta il video all'inizio
+        });
+      } else {
+        console.error("Elementi per l'easter egg non trovati!"); // Log di errore se gli elementi non esistono
+      }
+      // Fine codice Easter Egg
     </script>
   </body>
 </html>
